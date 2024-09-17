@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: "lts" # Use the latest LTS version of Node.js
+          node-version: "lts/*" # Use the latest LTS version of Node.js
 
       - name: Install Dependencies
         run: npm install # If you have dependencies to install
@@ -28,7 +28,7 @@ jobs:
         run: zip -r extension.zip * .[^.]* # This command creates a zip file of your extension
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag: v${{ github.run_number }} # Use a versioning strategy
           files: extension.zip
