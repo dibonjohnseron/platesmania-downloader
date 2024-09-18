@@ -33,4 +33,4 @@ jobs:
           tag_name: v${{ github.run_number }} # Use a versioning strategy
           files: extension.zip
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
