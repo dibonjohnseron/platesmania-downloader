@@ -25,12 +25,12 @@ jobs:
         run: npm run build # Replace with your build command if needed
 
       - name: Zip Extension
-        run: zip -r extension.zip * .[^.]* # This command creates a zip file of your extension
+        run: zip -r platemania-downloader.zip dist/* # This command zips the contents of the dist folder
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ github.run_number }} # Use a versioning strategy
-          files: extension.zip
+          files: platemania-downloader.zip
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
