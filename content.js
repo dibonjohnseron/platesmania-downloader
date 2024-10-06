@@ -22,7 +22,7 @@ function downloadImages() {
       const filename = `${model}_${plate}_${parts[parts.length - 1]}`;
 
       // Initiate download
-      chrome.runtime.sendMessage({ action: "download", url, filename });
+      chrome.runtime.sendMessage({ action: "download", url, filename: filename.replace(/\//g, '') });
 
       console.log(url);
       document.title = `Saving... ${--counter}`;
